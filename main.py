@@ -8,7 +8,7 @@ app = FastAPI()
 
 stripe.api_key = "sk_test_51ICjFIGOe2LN572AJ6Ivmu47c1tbLETmMCvi7tDXyZ5201vje9kqFcRSjyblWrjUEK792qJkNe84zeldGqgAwApH00ebOStQB6"
 origins = [
-    "http://127.0.0.1:8000",
+    "http://0.0.0.0:5000",
 ]
 
 app.add_middleware(

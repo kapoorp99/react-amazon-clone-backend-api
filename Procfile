@@ -1,1 +1,1 @@
-web: gunicorn uvicorn.workers.UvicornWorker --reload --workers 1 --host 0.0.0.0 --port=8000 main:app
+web: uvicorn --port 5000 --host 0.0.0.0 main:app --reload
