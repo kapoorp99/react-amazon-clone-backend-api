@@ -1,1 +1,1 @@
-web: gunicorn gunicorn.app main:app --bind=0.0.0.0:8081 --workers=4
+web: gunicorn main:app --bind=0.0.0.0:8081 --workers=4
