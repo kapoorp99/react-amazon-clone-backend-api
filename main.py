@@ -6,9 +6,6 @@ from fastapi.encoders import jsonable_encoder
 
 app = FastAPI()
 
-origins = [
-    "https://amazon-react-clone-backend.herokuapp.com",
-]
 
 stripe.api_key = "sk_test_51ICjFIGOe2LN572AJ6Ivmu47c1tbLETmMCvi7tDXyZ5201vje9kqFcRSjyblWrjUEK792qJkNe84zeldGqgAwApH00ebOStQB6"
 
