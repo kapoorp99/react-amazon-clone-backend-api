@@ -15,4 +15,3 @@ uvicorn==0.13.3
 websockets==8.1
 wrapt==1.12.1
 stripe
-uvloop
