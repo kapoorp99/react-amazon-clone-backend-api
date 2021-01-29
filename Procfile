@@ -1,1 +1,1 @@
-web: uvicorn --port 5000 --host 0.0.0.0 main:app --reload
+web: gunicorn -w 4 -k uvicorn.workers.UvicornWorker main:app
