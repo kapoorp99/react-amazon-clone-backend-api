@@ -1,1 +1,1 @@
-web: pip install requirements.txt && uvicorn --reload --workers 1 --host 127.0.0.1 --port=8000 main:app
+web: uvicorn --reload --workers 1 --host 0.0.0.0 --port=8000 main:app
