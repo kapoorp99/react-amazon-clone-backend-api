@@ -1,17 +1,10 @@
 from fastapi import FastAPI
-import stripe
-from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
-from fastapi.encoders import jsonable_encoder
 
 app = FastAPI()
 
-
-stripe.api_key = "sk_test_51ICjFIGOe2LN572AJ6Ivmu47c1tbLETmMCvi7tDXyZ5201vje9kqFcRSjyblWrjUEK792qJkNe84zeldGqgAwApH00ebOStQB6"
+#domain where this api is hosted for example : localhost:5000/docs to see swagger documentation automagically generated.
 
 
 @app.get("/")
 def home():
-    return {"message": "Hello this is Prakhar here"}
-
-
+    return {"message":"Hello TutLinks.com"}
