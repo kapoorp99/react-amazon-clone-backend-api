@@ -7,8 +7,7 @@ from fastapi.encoders import jsonable_encoder
 app = FastAPI()
 
 origins = [
-    "http://localhost:3000",
-    "http://localhost:8000",
+    "https://amazon-react-clone-backend.herokuapp.com/",
 ]
 
 app.add_middleware(
@@ -24,7 +23,7 @@ stripe.api_key = "sk_test_51ICjFIGOe2LN572AJ6Ivmu47c1tbLETmMCvi7tDXyZ5201vje9kqF
 
 @app.get("/")
 def home():
-    return {"message":"Hello this is Prakhar here"}
+    return {"message": "Hello this is Prakhar here"}
 
 
 @app.post("/payments/create/")
@@ -47,4 +46,3 @@ async def process_payment(total: str):
         ))
     json_compatible_item_data = jsonable_encoder(payment_intent.client_secret)
     return JSONResponse(content=json_compatible_item_data)
-
