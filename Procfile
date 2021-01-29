@@ -1,1 +1,1 @@
-web: uvicorn -w 1 -k uvicorn.workers.UvicornWorker main:app
+web: gunicorn.app.wsgiapp main:app --bind=0.0.0.0:8081 --workers=4
