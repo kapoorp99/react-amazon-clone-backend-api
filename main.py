@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 import stripe
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
+# from fastapi.responses import JSONResponse
 from fastapi.encoders import jsonable_encoder
 
 app = FastAPI()
@@ -44,5 +44,5 @@ async def process_payment(total: str):
             ),
         ))
     json_compatible_item_data = jsonable_encoder(payment_intent.client_secret)
-    x = JSONResponse(content=json_compatible_item_data)
-    return x
+    # x = JSONResponse(content=json_compatible_item_data)
+    return {"Hell":"this is fucking awesome"}
