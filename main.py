@@ -8,7 +8,7 @@ app = FastAPI()
 
 stripe.api_key = "sk_test_51ICjFIGOe2LN572AJ6Ivmu47c1tbLETmMCvi7tDXyZ5201vje9kqFcRSjyblWrjUEK792qJkNe84zeldGqgAwApH00ebOStQB6"
 origins = [
-    "http://0.0.0.0:8080",
+    "https://amazon-react-clone-backend.herokuapp.com/",
 ]
 
 app.add_middleware(
