@@ -1,6 +1,5 @@
 from fastapi import FastAPI
 import stripe
-from fastapi.encoders import jsonable_encoder
 
 app = FastAPI()
 
@@ -30,6 +29,5 @@ def process_payment(total: str):
                 country="US",
             ),
         ))
-    json_compatible_item_data = jsonable_encoder(payment_intent.client_secret)
     x = 6
     return x
