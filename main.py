@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 import stripe
 from fastapi.middleware.cors import CORSMiddleware
-# from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse
 from fastapi.encoders import jsonable_encoder
 
 app = FastAPI()
@@ -10,14 +10,6 @@ stripe.api_key = "sk_test_51ICjFIGOe2LN572AJ6Ivmu47c1tbLETmMCvi7tDXyZ5201vje9kqF
 origins = [
     "https://amazon-react-clone-backend.herokuapp.com/",
 ]
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
 
 
 @app.get("/")
@@ -44,5 +36,5 @@ async def process_payment(total: str):
             ),
         ))
     json_compatible_item_data = jsonable_encoder(payment_intent.client_secret)
-    # x = JSONResponse(content=json_compatible_item_data)
-    return {"Hell": "this is fucking awesome"}
+    x = JSONResponse(content=json_compatible_item_data)
+    return x
