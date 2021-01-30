@@ -44,4 +44,5 @@ async def process_payment(total: str):
             ),
         ))
     json_compatible_item_data = jsonable_encoder(payment_intent.client_secret)
-    return JSONResponse(content=json_compatible_item_data)
+    x = JSONResponse(content=json_compatible_item_data)
+    return x
