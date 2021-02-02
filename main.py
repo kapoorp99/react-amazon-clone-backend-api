@@ -1,6 +1,37 @@
-from fastapi import FastAPI
-app = FastAPI()
+from flask import Flask, request
+import stripe
 
-@app.get('/')
-def home():
-    return {"message": "Hello, this is Prakhar Kapoor here"}
+stripe.api_key = "sk_test_51ICjFIGOe2LN572AJ6Ivmu47c1tbLETmMCvi7tDXyZ5201vje9kqFcRSjyblWrjUEK792qJkNe84zeldGqgAwApH00ebOStQB6"
+
+app = Flask(__name__)
+
+
+@app.route('/payments/create', methods=['POST'])
+def process_payment():
+    total_amount = request.args['total']
+    payment_intent = stripe.PaymentIntent.create(
+        amount=total_amount,
+        currency="usd",
+        payment_method_types=["card"],
+        description="Software development services",
+        shipping=dict(
+            name="Prakhar Kapoor",
+            address=dict(
+                line1="510 Townsend St",
+                postal_code="98140",
+                city="San Francisco",
+                state="CA",
+                country="US",
+            ),
+        ))
+    print(payment_intent.client_secret)
+    return payment_intent.client_secret
+
+
+@app.route('/', methods=['GET', 'POST'])
+def welcome():
+    return "Hello World!"
+
+
+if __name__ == '__main__':
+    app.run(host='127.0.0.1', port=105, debug=True)
