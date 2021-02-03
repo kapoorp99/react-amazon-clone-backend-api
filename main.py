@@ -13,7 +13,8 @@ app = Flask(__name__)
 def process_payment():
     total_amount = request.args['total']
     if total_amount == 0:
-        return jsonify("Payment amount should not be zero")
+        error_message = "Payment amount should not be zero"
+        return error_message
     payment_intent = stripe.PaymentIntent.create(
         amount=total_amount,
         currency="usd",
