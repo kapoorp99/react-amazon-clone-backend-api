@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 from flask_cors import CORS, cross_origin
 
 import stripe
@@ -12,6 +12,8 @@ app = Flask(__name__)
 @cross_origin()
 def process_payment():
     total_amount = request.args['total']
+    if total_amount == 0:
+        return jsonify("Payment amount should not be zero")
     payment_intent = stripe.PaymentIntent.create(
         amount=total_amount,
         currency="usd",
