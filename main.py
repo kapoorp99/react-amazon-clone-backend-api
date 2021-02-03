@@ -12,26 +12,27 @@ app = Flask(__name__)
 @cross_origin()
 def process_payment():
     total_amount = request.args['total']
-    if total_amount == 0:
+    if total_amount == '0':
         error_message = "Payment amount should not be zero"
         return error_message
-    payment_intent = stripe.PaymentIntent.create(
-        amount=total_amount,
-        currency="usd",
-        payment_method_types=["card"],
-        description="Software development services",
-        shipping=dict(
-            name="Prakhar Kapoor",
-            address=dict(
-                line1="510 Townsend St",
-                postal_code="98140",
-                city="San Francisco",
-                state="CA",
-                country="US",
-            ),
-        ))
-    print(payment_intent.client_secret)
-    return payment_intent.client_secret
+    else:
+        payment_intent = stripe.PaymentIntent.create(
+            amount=total_amount,
+            currency="usd",
+            payment_method_types=["card"],
+            description="Software development services",
+            shipping=dict(
+                name="Prakhar Kapoor",
+                address=dict(
+                    line1="510 Townsend St",
+                    postal_code="98140",
+                    city="San Francisco",
+                    state="CA",
+                    country="US",
+                ),
+            ))
+        print(payment_intent.client_secret)
+        return payment_intent.client_secret
 
 
 @app.route('/', methods=['GET', 'POST'])
