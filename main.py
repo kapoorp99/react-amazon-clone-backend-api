@@ -1,4 +1,6 @@
 from flask import Flask, request
+from flask_cors import CORS, cross_origin
+
 import stripe
 
 stripe.api_key = "sk_test_51ICjFIGOe2LN572AJ6Ivmu47c1tbLETmMCvi7tDXyZ5201vje9kqFcRSjyblWrjUEK792qJkNe84zeldGqgAwApH00ebOStQB6"
@@ -7,6 +9,7 @@ app = Flask(__name__)
 
 
 @app.route('/payments/create', methods=['POST'])
+@cross_origin()
 def process_payment():
     total_amount = request.args['total']
     payment_intent = stripe.PaymentIntent.create(
