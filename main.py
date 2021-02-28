@@ -1,9 +1,9 @@
-from flask import Flask, request, jsonify
-from flask_cors import CORS, cross_origin
+from flask import Flask, request
+from flask_cors import cross_origin
 
 import stripe
 
-stripe.api_key = "sk_test_51ICjFIGOe2LN572AJ6Ivmu47c1tbLETmMCvi7tDXyZ5201vje9kqFcRSjyblWrjUEK792qJkNe84zeldGqgAwApH00ebOStQB6"
+stripe.api_key = "sk_test_51IPPOjEooHcYP2S6glE8nJafR8DyZUb59RwkRDoIr1I5pFQgOQqd2XaoRC4woWRZ04BhMadDGMhAPNJE1jTnxUqE00ogkh1oYx"
 
 app = Flask(__name__)
 
